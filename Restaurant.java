@@ -13,21 +13,35 @@ public class Restaurant {
   }
 
   public void addNewParty(CustomerParty party) {
-
+    customerLine.enqueue(party);
+    lineLength++;
   }
 
   public void seatWaitingParty() {
-    int skipped = -1, size = tables.size();
-    while(skipped++ != size)
-      if (canSeat(customerLine.peek))
+    int skipped = -1;
+    while(skipped++ != lineLength) {
+      CustomerParty party = customerLine.dequeue();
+      int tableIndex = canSeat(party.getSize());
+      if (tableIndex >= 0) {
+        lineLenth--;
+        tables.get(i).addParty(party);
+        break;
+      } else {
+        customerLine.enqueue(party);
+      }
+    }
+
+    if (skipped!=size)
+      while(skipped-->0)
+        customerLine.enqueueFirst(customerLine.dequeueLast());
   }
 
-  private boolean canSeat(int seatCount) {
+  private int canSeat(int seatCount) {
     int size = tables.size();
     for(int i = 0; i < size; i++)
       if (tables.get(i).canSeat(seatCount))
-        return true;
-    return false;
+        return i;
+    return -1;
   }
 
   public void finishServing(String name) {
@@ -53,7 +67,7 @@ public class Restaurant {
   }
 
   public String getWaitingCustomers() {
-
+    return customerLine.toString();
   }
 
   public String getSeatedCustomers() {
