@@ -12,12 +12,14 @@ public class Table {
   public String getName() { return name; }
 
   public int getSeatCount { return seatCount; }
-  public bool canSeat(int requestedSeats) { return (requestedSeats <= seatCount); }
+  public boolean canSeat(int requestedSeats) { return (requestedSeats <= seatCount); }
 
   public void addParty(CustomerParty party) { this.party = party; }
+  public boolean isTaken() { return (party!=null); }
   public CustomerParty removeParty() {
     CustomerParty temp = party;
     party = null;
     return party;
   }
+  public CustomerParty peekParty() { return party; }
 }
