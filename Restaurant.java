@@ -23,15 +23,15 @@ public class Restaurant {
       CustomerParty party = customerLine.dequeue();
       int tableIndex = canSeat(party.getSize());
       if (tableIndex >= 0) {
-        lineLenth--;
-        tables.get(i).addParty(party);
+        lineLength--;
+        tables.get(tableIndex).addParty(party);
         break;
       } else {
         customerLine.enqueue(party);
       }
     }
 
-    if (skipped!=size)
+    if (skipped!=lineLength)
       while(skipped-->0)
         customerLine.enqueueFirst(customerLine.dequeueLast());
   }
@@ -54,10 +54,10 @@ public class Restaurant {
 
   public void rmTable(String name, boolean petOK) {
     int start = (petOK)?0:npStart;
-    int end = (petOK)?npStart-1:tables.length();
-    for(start; start<end; start++)
-      if (tables.get(i).getName().equals(name)) {
-        tables.remove(i);
+    int end = (petOK)?npStart-1:tables.size();
+    for(; start<end; start++)
+      if (tables.get(start).getName().equals(name)) {
+        tables.remove(start);
         break;
       }
   }

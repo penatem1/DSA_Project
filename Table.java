@@ -11,7 +11,7 @@ public class Table {
 
   public String getName() { return name; }
 
-  public int getSeatCount { return seatCount; }
+  public int getSeatCount() { return seatCount; }
   public boolean canSeat(int requestedSeats) { return (requestedSeats <= seatCount); }
 
   public void addParty(CustomerParty party) { this.party = party; }
