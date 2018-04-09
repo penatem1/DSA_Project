@@ -123,10 +123,25 @@ public class Restaurant {
       }
   }
 
-  public String getAvailableTables() {
-
-  }
-
+   public void getAvailableTables() {
+    size = tables.size(); 
+    System.out.prinln("The following tables are available in the pet-friendly section:");
+    for( int i = 0; i < npStart; i++)
+    {
+    if(tables.get(i).peekParty().equals(null))
+    {
+     System.out.println("Table "+tables.get(i).getName()+" with "+tables.get(i).getSeatCount()+" seats"
+    }
+    }
+    System.put.println("The following tables are available in the non-pet-friendly section:")
+    for (int i = npStart; i < size; i++)
+    {
+      if(tables.get(i).peekParty().equals(null))
+      {
+      System.out.println("Table "+ tab;es/get(i).getName()+" with "+tables.get(i).getSeatCount()+" seats"
+      }  
+    }     
+}
   public String getWaitingCustomers() {
     return customerLine.toString();
   }
