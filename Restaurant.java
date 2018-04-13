@@ -4,6 +4,12 @@ public class Restaurant {
   ListRA<Table> tables;
   Deq<CustomerParty> customerLine;
 
+
+  /**
+  * Constructor for Restauarant Class includes deq for the line of customers.
+  *@param tables a resizable array list containing references to table objects
+  *@param npStart an int value that splits the array into pet-friendly and non-pet friendly sections
+  */
   public Restaurant(ListRA<Table> tables, int npStart) {
     this.tables = tables;
     this.npStart = npStart;
@@ -12,11 +18,19 @@ public class Restaurant {
     lineLength = 0;
   }
 
+
+  /**
+  * Method to add a new party to the line of customers
+  * @param party a customer part object to be added to the customer party Deq
+  */
   public void addNewParty(CustomerParty party) {
     customerLine.enqueue(party);
     lineLength++;
   }
 
+  /**
+  *Method to sit a waiting party in the customer line (deq)
+  */
   public void seatWaitingParty() {
     int skipped = -1;
     while(skipped++ != lineLength) {
@@ -38,6 +52,12 @@ public class Restaurant {
         customerLine.enqueueFirst(customerLine.dequeueLast());
   }
 
+  /**	+  private int canSeatParty(int seatCount, boolean petOk) {
+  * Method to see if a party can be seated in one of the tables
+  *@param seatCount gives number of seats needed for the party looking to be seated
+  *@param petOk if the party is ok with being in the pet section
+  *@return returns the first table that can seat the party, or -1 if no such table is avalable
+  */
   private int canSeatParty(int seatCount, boolean petOk) {
     int end = (petOk)?npStart:tables.size();
     int i = (petOk)?0:npStart;
@@ -47,6 +67,10 @@ public class Restaurant {
     return -1;
   }
 
+  /**
+  * Method to remove parties from table who have finished being served
+  *@param name Name of the party that will be removed from the table
+  */
   public void finishServing(String name) {
   booolean found = false;
   int size = tables.size();
@@ -67,6 +91,11 @@ public class Restaurant {
       }
   }
 
+  /**
+  *Method to add a table to either the pet or non-pet section of the restaurant
+  *@param table reference to a table object to be added to the list of tables
+  *@param petOK boolean to signify which section of the restaurant to place the table in
+  */
   public void addTable(Table table, boolean petOK) {
   int size = tables.size();
   boolean insertHere = true;
@@ -116,6 +145,12 @@ public class Restaurant {
     System.out.println("Table "+table.getName()+" has been added to the No Pets Section");
   }
 }
+
+  /**
+  *Method that removes a table from either section of the restaurant
+  *@param name gives the name of the table to be removed
+  *@param petOK signifies which section to remove the table from
+  */
   public void rmTable(String name, boolean petOK) {
     int start = (petOK)?0:npStart;
     int end = (petOK)?npStart-1:tables.size();
@@ -126,7 +161,10 @@ public class Restaurant {
       }
   }
 
-   public void getAvailableTables() {
+  /**	+   public void getAvailableTables() {
+  *Method to see the available tables in each of the sections of the restaurant	+    size = tables.size();
+  */
+  public void getAvailableTables() {
     size = tables.size();
     System.out.prinln("The following tables are available in the pet-friendly section:");
     for( int i = 0; i < npStart; i++)
@@ -144,11 +182,20 @@ public class Restaurant {
       System.out.println("Table "+ tab;es/get(i).getName()+" with "+tables.get(i).getSeatCount()+" seats"
       }
     }
-}
+  }
+
+  /**
+  *Method to get the waiting customers in line
+  *@return returns a string of customers in line waiting to be seated
+  */
   public String getWaitingCustomers() {
     return customerLine.toString();
   }
 
+  /**
+  *Method to geet the customers that are currently seated at tables	
+  *@return a string of all of the customers that are at each of the tables of the restaurant
+  */
   public String getSeatedCustomers() {
     String out = "";
     int size = tables.size();
