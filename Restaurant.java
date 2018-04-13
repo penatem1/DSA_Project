@@ -47,7 +47,7 @@ public class Restaurant {
   public void finishServing(String name) {
   booolean found = false;
   int size = tables.size();
-    //can check if this is empty in the driver (keep track of how many parties have been added  and if == 0 
+    //can check if this is empty in the driver (keep track of how many parties have been added  and if == 0)
     for(int i = 0, i < size; i++)
       {
         if(tables.get(i).peekParty().getName().equals(name))
@@ -138,7 +138,7 @@ public class Restaurant {
     {
       if(tables.get(i).peekParty().equals(null))
       {
-      System.out.println("Table "+ tab;es/get(i).getName()+" with "+tables.get(i).getSeatCount()+" seats"
+      System.out.println("Table "+ tables.get(i).getName()+" with "+tables.get(i).getSeatCount()+" seats"
       }  
     }     
 }
