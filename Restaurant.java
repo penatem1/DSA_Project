@@ -151,17 +151,18 @@ public class Restaurant {
   *@param name gives the name of the table to be removed
   *@param petOK signifies which section to remove the table from
   */
-  public void rmTable(String name, boolean petOK) {
+  public boolean rmTable(String name, boolean petOK) {
     int start = (petOK)?0:npStart;
     int end = (petOK)?npStart-1:tables.size();
     for(; start<end; start++)
       if (tables.get(start).getName().equals(name)) {
         tables.remove(start);
-        break;
+        return true;
       }
+    return false;
   }
 
-  /**	+   public void getAvailableTables() {
+  /**
   *Method to see the available tables in each of the sections of the restaurant	+    size = tables.size();
   */
   public void getAvailableTables() {
@@ -185,6 +186,20 @@ public class Restaurant {
   }
 
   /**
+  *Method to get the names of all tables in a section
+  *@param petOk if true the petOK section will be searched, opposite if false
+  *@return String of the tables names, separated by new line characters
+  */
+  public String getTableNames(boolean petOk) {
+    String out = "";
+    int start = (petOK)?0:npStart;
+    int end = (petOK)?npStart-1:tables.size();
+    for(; start<end; start++)
+      out += tables.get(start).getName() + "\n";
+    return out;
+  }
+
+  /**
   *Method to get the waiting customers in line
   *@return returns a string of customers in line waiting to be seated
   */
@@ -193,7 +208,7 @@ public class Restaurant {
   }
 
   /**
-  *Method to geet the customers that are currently seated at tables	
+  *Method to geet the customers that are currently seated at tables
   *@return a string of all of the customers that are at each of the tables of the restaurant
   */
   public String getSeatedCustomers() {
