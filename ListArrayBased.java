@@ -19,17 +19,25 @@ public class ListArrayBased<T> implements ListInterface<T>
         items = (T[]) new Object[MAX_LIST];
         numItems = 0;
     }  // end default constructor
-
+/**
+*Method for seeing if the collection is empty
+*@return returns true if the collection is empty and false otherwise
+*/
     public boolean isEmpty()
     {
         return (numItems == 0);
     } // end isEmpty
-
+/**
+*Method for getting the size of the collection
+*@return returns integer that is the size of the collection
+*/
     public int size()
     {
         return numItems;
     }  // end size
-
+/**
+*Method for removing all items in the collection
+*/
     public void removeAll()
     {
         // Creates a new array; marks old array for
@@ -37,7 +45,11 @@ public class ListArrayBased<T> implements ListInterface<T>
         items = (T[]) new Object[MAX_LIST];
         numItems = 0;
     } // end removeAll
-
+/**
+*Method for adding an item in a specific index of the collection
+*@param index is an integer that represents where in the collection to place the item
+*@param item is a reference to the object to be placed in the collection
+*/
     public void add(int index, T item)
     throws  ListIndexOutOfBoundsException
     {
@@ -65,7 +77,11 @@ public class ListArrayBased<T> implements ListInterface<T>
                 "ListIndexOutOfBoundsException on add");
         }  // end if
     } //end add
-
+/**
+*Method for getting an item in a specified index of the collection
+*@param takes an int that is the index of the collection to be returned
+*@return returns the item that is in the specified index
+*/
     public T get(int index)
     throws ListIndexOutOfBoundsException
     {
@@ -80,7 +96,10 @@ public class ListArrayBased<T> implements ListInterface<T>
                 "ListIndexOutOfBoundsException on get");
         }  // end if
     } // end get
-
+/**
+*Method for removing an item in an index from the collection
+*@param int that represents the index to be removed
+*/
     public void remove(int index)
     throws ListIndexOutOfBoundsException
     {
