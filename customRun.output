@@ -1,0 +1,258 @@
+Enter your restaurant configuration:
+How many tables does your pet-friendly section have?3
+Enter table name: Red
+Enter number of seats: 5
+Enter table name: Blue
+Enter number of seats: 3
+Enter table name: Green
+Enter number of seats: 4
+How many tables does your non-pet-friendly section have? 2
+Enter table name: Orange
+Enter number of seats: 3
+Enter table name: Yellow
+Enter number of seats: 5
+
+Select from the following menu: 
+0. Close the restaurant.
+1. Customer party enters the restaurant.
+2. Customer party is seated and served.
+3. Customer party leaves the restaurant.
+4. Add a table.
+5. Remove a table.
+6  Display available tables.
+7. Display info about waiting customer parties.
+8. Display info about customer parties being served.
+
+Make your menu selection now: 8
+No parties seated currently.
+
+Make your menu selection now: 7
+No customer waiting in line.
+
+Make your menu selection now: 6
+The following 3 tables are available in the pet-friendly section:
+Table Blue with 3 seats
+Table Green with 4 seats
+Table Red with 5 seats
+The following 2 tables are available in the non-pet-friendly section:
+Table Orange with 3 seats
+Table Yellow with 5 seats
+
+Make your menu selection now: 5
+From which section would you like to remove this table?(P/N):N
+Enter table name: Yellow
+Removed table Yellow.
+
+Make your menu selection now: 8
+No parties seated currently.
+
+Make your menu selection now: 7
+No customer waiting in line.
+
+Make your menu selection now: 6
+The following 3 tables are available in the pet-friendly section:
+Table Blue with 3 seats
+Table Green with 4 seats
+Table Red with 5 seats
+The following 1 tables are available in the non-pet-friendly section:
+Table Orange with 3 seats
+
+Make your menu selection now: 4
+You are now adding a table.
+To which section would you like to add this tabe?(P/N): P
+Enter table name: Yellow
+Enter number of seats: 5
+Table Yellow has been added to the Pet Friendly Section
+
+Make your menu selection now: 8
+No parties seated currently.
+
+Make your menu selection now: 7
+No customer waiting in line.
+
+Make your menu selection now: 6
+The following 4 tables are available in the pet-friendly section:
+Table Blue with 3 seats
+Table Green with 4 seats
+Table Yellow with 5 seats
+Table Red with 5 seats
+The following 1 tables are available in the non-pet-friendly section:
+Table Orange with 3 seats
+
+Make your menu selection now: 1
+Enter party name: Marc
+Enter party size: 5
+Does your party have pets (Y/N)?Y
+
+Make your menu selection now: 1
+Enter party name: John
+Enter party size: 5
+Does your party have pets (Y/N)?Y
+
+Make your menu selection now: 1
+Enter party name: Mike
+Enter party size: 5
+Does your party have pets (Y/N)?Y
+
+Make your menu selection now: 1
+Enter party name: Jill
+Enter party size: 3
+Does your party have pets (Y/N)?N
+
+Make your menu selection now: 1
+Enter party name: Kevin
+Enter party size: 3
+Does your party have pets (Y/N)?P
+
+Make your menu selection now: 8
+No parties seated currently.
+
+Make your menu selection now: 7
+Marc party of 5(Pet)
+John party of 5(Pet)
+Mike party of 5(Pet)
+Jill party of 3(No Pet)
+Kevin party of 3(No Pet)
+
+
+Make your menu selection now: 6
+The following 4 tables are available in the pet-friendly section:
+Table Blue with 3 seats
+Table Green with 4 seats
+Table Yellow with 5 seats
+Table Red with 5 seats
+The following 1 tables are available in the non-pet-friendly section:
+Table Orange with 3 seats
+
+Make your menu selection now: 2
+Serving Customer Marc party of 5(Pet) at table Yellow with 5 seats.
+
+Make your menu selection now: 2
+Serving Customer John party of 5(Pet) at table Red with 5 seats.
+
+Make your menu selection now: 2
+Could not find a table with 5 seats for customer Mike!
+Serving Customer Jill party of 3(No Pet) at table Orange with 3 seats.
+
+Make your menu selection now: 2
+Could not find a table with 5 seats for customer Mike!
+Could not find a table with 3 seats for customer Kevin!
+
+Make your menu selection now: 8
+Marc party of 5(Pet)
+John party of 5(Pet)
+Jill party of 3(No Pet)
+
+
+Make your menu selection now: 7
+Mike party of 5(Pet)
+Kevin party of 3(No Pet)
+
+
+Make your menu selection now: 6
+The following 4 tables are available in the pet-friendly section:
+Table Blue with 3 seats
+Table Green with 4 seats
+The following 1 tables are available in the non-pet-friendly section:
+
+Make your menu selection now: 5
+From which section would you like to remove this table?(P/N):P
+Enter table name: Red
+Cannot remove a table currently in use!
+Could not remove table Red.
+
+Make your menu selection now: 2
+Could not find a table with 5 seats for customer Mike!
+Could not find a table with 3 seats for customer Kevin!
+
+Make your menu selection now: 8
+Marc party of 5(Pet)
+John party of 5(Pet)
+Jill party of 3(No Pet)
+
+
+Make your menu selection now: 7
+Mike party of 5(Pet)
+Kevin party of 3(No Pet)
+
+
+Make your menu selection now: 6
+The following 4 tables are available in the pet-friendly section:
+Table Blue with 3 seats
+Table Green with 4 seats
+The following 1 tables are available in the non-pet-friendly section:
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Marc
+Table Yellow has been freed, Marc party of 5(Pet) is leaving the restaurant.
+
+Make your menu selection now: 8
+John party of 5(Pet)
+Jill party of 3(No Pet)
+
+
+Make your menu selection now: 7
+Mike party of 5(Pet)
+Kevin party of 3(No Pet)
+
+
+Make your menu selection now: 6
+The following 4 tables are available in the pet-friendly section:
+Table Blue with 3 seats
+Table Green with 4 seats
+Table Yellow with 5 seats
+The following 1 tables are available in the non-pet-friendly section:
+
+Make your menu selection now: 2
+Serving Customer Mike party of 5(Pet) at table Yellow with 5 seats.
+
+Make your menu selection now: 8
+Mike party of 5(Pet)
+John party of 5(Pet)
+Jill party of 3(No Pet)
+
+
+Make your menu selection now: 7
+Kevin party of 3(No Pet)
+
+
+Make your menu selection now: 6
+The following 4 tables are available in the pet-friendly section:
+Table Blue with 3 seats
+Table Green with 4 seats
+The following 1 tables are available in the non-pet-friendly section:
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: John
+Table Red has been freed, John party of 5(Pet) is leaving the restaurant.
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Mike
+Table Yellow has been freed, Mike party of 5(Pet) is leaving the restaurant.
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Kevin
+Party Kevin is not being served
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Jill
+Table Orange has been freed, Jill party of 3(No Pet) is leaving the restaurant.
+
+Make your menu selection now: 8
+No parties seated currently.
+
+Make your menu selection now: 7
+Kevin party of 3(No Pet)
+
+
+Make your menu selection now: 6
+The following 4 tables are available in the pet-friendly section:
+Table Blue with 3 seats
+Table Green with 4 seats
+Table Yellow with 5 seats
+Table Red with 5 seats
+The following 1 tables are available in the non-pet-friendly section:
+Table Orange with 3 seats
+
+Make your menu selection now: 0
+Restaurant is closing. Goodbye.
