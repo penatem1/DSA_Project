@@ -25,16 +25,26 @@ public class Driver {
       try {
         switch(in) {
         case 8:
-
+          System.out.println(rest.getSeatedCustomers());
           break;
         case 7:
-
+          System.out.println(rest.getWaitingCustomers());
           break;
         case 6:
-
+          System.out.println(rest.getAvailableTables());
           break;
         case 5:
+          petOk = (promptInput(scan, "From which section would you like to remove this table?(P/N):").charAt(0) == 'P');
 
+          while(true) {
+            t_name = promptInput(scan, "Enter table name: ");
+            if(rest.getTableNames(petOk).contains(t_name))
+              System.out.println("Table " + t_name + " was not found, try again.");
+            else
+              break;
+          }
+
+          rest.rmTable(t_name, petOk);
           break;
         case 4:
             System.out.println("You are now adding a table.");
@@ -48,14 +58,14 @@ public class Driver {
              while(!difName)
                {
                 name = promptInput(scan, "Enter table name: ");
-                  
+
                   if(!getTableName(petVal).contains(name))
                      {
                         difName = true
                      }
                   else
                   { System.out.print("This table already exists in this section!")}
-                   
+
                 }
                 seatNum = Integer.parseInt(promptInput(scan, "Enter number of seats: "));
                 Table newTable = new table(name, seatNum);
