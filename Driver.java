@@ -37,8 +37,31 @@ public class Driver {
 
           break;
         case 4:
+            System.out.println("You are now adding a table.");
+            petVal = promptInput(scan,"To which section would you like to add this tabe?(P/N): ");
+            boolean petOK = false;
+            boolean difName = false;
+            if (petVal.equalsIgnoreCase("P")
+                {
+                   petOK = true;
+                }
+             while(!difName)
+               {
+                name = promptInput(scan, "Enter table name: ");
+                  
+                  if(!getTableName(petVal).contains(name))
+                     {
+                        difName = true
+                     }
+                  else
+                  { System.out.print("This table already exists in this section!")}
+                   
+                }
+                seatNum = Integer.parseInt(promptInput(scan, "Enter number of seats: "));
+                Table newTable = new table(name, seatNum);
+                rest.addTable(newTable, petVal);
 
-          break;
+                break;
         case 3:
 
           break;
