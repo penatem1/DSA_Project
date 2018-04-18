@@ -1,13 +1,23 @@
+/*
+* Purpose: Data Structure and Algorithms Project
+* Status: Complete and thoroughly tested
+* Last update: 04/18/18
+* Submitted:  04/19/18
+* Comment: test suite and sample run attached
+* @author: Marcus Penate
+* @version: 2018.02.01
+*/
+
 public class Table {
-    String name;
-    int seatCount;
-    CustomerParty party;
+    String name; //table name
+    int seatCount; //number of seats
+    CustomerParty party; //party currently seated at table
     /**
     *Constructor for table class
     *@param name holds name of the table
     *@param seatCount int which holds the number of seats available at a table
     */
-    public Table(String name, int seatCount) {
+    public Table(String name, int seatCount) { //default full-filler constructor 
         this.name = name;
         this.seatCount = seatCount;
         party = null;
