@@ -1,0 +1,591 @@
+Enter your restaurant configuration:
+How many tables does your pet-friendly section have?6
+Enter table name: blue
+Enter number of seats: 4
+Enter table name: green
+Enter number of seats: 6
+Enter table name: yellow
+Enter number of seats: 2
+Enter table name: blue
+Name already in use, please use a different name.
+Enter table name: silver
+Enter number of seats: 4
+Enter table name: red
+Enter number of seats: 2
+Enter table name: orange
+Enter number of seats: 3
+How many tables does your non-pet-friendly section have? 7
+Enter table name: red
+Enter number of seats: 6
+Enter table name: brown
+Enter number of seats: 3
+Enter table name: magenta
+Enter number of seats: 6
+Enter table name: pink
+Enter number of seats: 3
+Enter table name: aquamarine
+Enter number of seats: 2
+Enter table name: pink
+Name already in use, please use a different name.
+Enter table name: marble
+Enter number of seats: 8
+Enter table name: teal
+Enter number of seats: 4
+
+Select from the following menu: 
+0. Close the restaurant.
+1. Customer party enters the restaurant.
+2. Customer party is seated and served.
+3. Customer party leaves the restaurant.
+4. Add a table.
+5. Remove a table.
+6  Display available tables.
+7. Display info about waiting customer parties.
+8. Display info about customer parties being served.
+
+Make your menu selection now: 2
+No customer to seat!
+
+Make your menu selection now: 3
+No parties seated currently.
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table orange with 3 seats
+Table silver with 4 seats
+Table blue with 4 seats
+Table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table pink with 3 seats
+Table brown with 3 seats
+Table teal with 4 seats
+Table magenta with 6 seats
+Table red with 6 seats
+Table marble with 8 seats
+
+Make your menu selection now: 7
+No customer waiting in line.
+
+Make your menu selection now: 8
+No parties seated currently.
+
+Make your menu selection now: 1
+Enter party name: Beverly
+Enter party size: 3
+Does your party have pets (Y/N)?Y
+
+Make your menu selection now: 1
+Enter party name: Geordi
+Enter party size: 3
+Does your party have pets (Y/N)?N
+
+Make your menu selection now: 1
+Enter party name: Worf
+Enter party size: 4
+Does your party have pets (Y/N)?N
+
+Make your menu selection now: 1
+Enter party name: Will
+Enter party size: 4
+Does your party have pets (Y/N)?N
+
+Make your menu selection now: 1
+Enter party name: Guinan
+Enter party size: 4
+Does your party have pets (Y/N)?N
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table orange with 3 seats
+Table silver with 4 seats
+Table blue with 4 seats
+Table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table pink with 3 seats
+Table brown with 3 seats
+Table teal with 4 seats
+Table magenta with 6 seats
+Table red with 6 seats
+Table marble with 8 seats
+
+Make your menu selection now: 7
+Beverly party of 3(Pet)
+Geordi party of 3(No Pet)
+Worf party of 4(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+
+
+Make your menu selection now: 8
+No parties seated currently.
+
+Make your menu selection now: 2
+Serving Customer Beverly party of 3(Pet) at table orange with 3 seats.
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table silver with 4 seats
+Table blue with 4 seats
+Table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table pink with 3 seats
+Table brown with 3 seats
+Table teal with 4 seats
+Table magenta with 6 seats
+Table red with 6 seats
+Table marble with 8 seats
+
+Make your menu selection now: 7
+Geordi party of 3(No Pet)
+Worf party of 4(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+
+
+Make your menu selection now: 2
+Serving Customer Geordi party of 3(No Pet) at table pink with 3 seats.
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table silver with 4 seats
+Table blue with 4 seats
+Table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table brown with 3 seats
+Table teal with 4 seats
+Table magenta with 6 seats
+Table red with 6 seats
+Table marble with 8 seats
+
+Make your menu selection now: 7
+Worf party of 4(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Geordi party of 3(No Pet)
+
+
+Make your menu selection now: 2
+Serving Customer Worf party of 4(No Pet) at table teal with 4 seats.
+
+Make your menu selection now: 2
+Serving Customer Will party of 4(No Pet) at table magenta with 6 seats.
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table silver with 4 seats
+Table blue with 4 seats
+Table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table brown with 3 seats
+Table red with 6 seats
+Table marble with 8 seats
+
+Make your menu selection now: 7
+Guinan party of 4(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Geordi party of 3(No Pet)
+Worf party of 4(No Pet)
+Will party of 4(No Pet)
+
+
+Make your menu selection now: 1
+Enter party name: Jean-Luc
+Enter party size: 6
+Does your party have pets (Y/N)?Y
+
+Make your menu selection now: 1
+Enter party name: Deanna
+Enter party size: 6
+Does your party have pets (Y/N)?N
+
+Make your menu selection now: 1
+Enter party name: Data
+Enter party size: 6
+Does your party have pets (Y/N)?N
+
+Make your menu selection now: 1
+Enter party name: Will
+Party name already exists. Pick a different name.Enter party name: Worf
+Party name already exists. Pick a different name.Enter party name: Wesley
+Enter party size: 6
+Does your party have pets (Y/N)?N
+
+Make your menu selection now: 2
+Serving Customer Guinan party of 4(No Pet) at table red with 6 seats.
+
+Make your menu selection now: 2
+Serving Customer Jean-Luc party of 6(Pet) at table green with 6 seats.
+
+Make your menu selection now: 2
+Serving Customer Deanna party of 6(No Pet) at table marble with 8 seats.
+
+Make your menu selection now: 2
+Could not find a table with 6 seats for customer Data!
+Could not find a table with 6 seats for customer Wesley!
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table silver with 4 seats
+Table blue with 4 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table brown with 3 seats
+
+Make your menu selection now: 7
+Data party of 6(No Pet)
+Wesley party of 6(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Jean-Luc party of 6(Pet)
+Geordi party of 3(No Pet)
+Worf party of 4(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+Deanna party of 6(No Pet)
+
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Deanna
+Table marble has been freed, Deanna party of 6(No Pet) is leaving the restaurant.
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Worf
+Table teal has been freed, Worf party of 4(No Pet) is leaving the restaurant.
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table silver with 4 seats
+Table blue with 4 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table brown with 3 seats
+Table teal with 4 seats
+Table marble with 8 seats
+
+Make your menu selection now: 7
+Data party of 6(No Pet)
+Wesley party of 6(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Jean-Luc party of 6(Pet)
+Geordi party of 3(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+
+
+Make your menu selection now: 1
+Enter party name: Deanna
+Enter party size: 4
+Does your party have pets (Y/N)?Y
+
+Make your menu selection now: 2
+Serving Customer Data party of 6(No Pet) at table marble with 8 seats.
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table silver with 4 seats
+Table blue with 4 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table brown with 3 seats
+Table teal with 4 seats
+
+Make your menu selection now: 7
+Wesley party of 6(No Pet)
+Deanna party of 4(Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Jean-Luc party of 6(Pet)
+Geordi party of 3(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+Data party of 6(No Pet)
+
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Wesley
+Party Wesley is not being served
+
+Make your menu selection now: 2
+Could not find a table with 6 seats for customer Wesley!
+Serving Customer Deanna party of 4(Pet) at table silver with 4 seats.
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table blue with 4 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table brown with 3 seats
+Table teal with 4 seats
+
+Make your menu selection now: 7
+Wesley party of 6(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Deanna party of 4(Pet)
+Jean-Luc party of 6(Pet)
+Geordi party of 3(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+Data party of 6(No Pet)
+
+
+Make your menu selection now: 1
+Enter party name: Data
+Party name already exists. Pick a different name.Enter party name: Worf
+Enter party size: 4
+Does your party have pets (Y/N)?N
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table blue with 4 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table brown with 3 seats
+Table teal with 4 seats
+
+Make your menu selection now: 7
+Wesley party of 6(No Pet)
+Worf party of 4(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Deanna party of 4(Pet)
+Jean-Luc party of 6(Pet)
+Geordi party of 3(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+Data party of 6(No Pet)
+
+
+Make your menu selection now: 5
+From which section would you like to remove this table?(P/N):P
+Enter table name: orange
+Cannot remove a table currently in use!
+Could not remove table orange.
+
+Make your menu selection now: 5
+From which section would you like to remove this table?(P/N):N
+Enter table name: marble
+Cannot remove a table currently in use!
+Could not remove table marble.
+
+Make your menu selection now: 5
+From which section would you like to remove this table?(P/N):N
+Enter table name: white
+Table white was not found, try again.
+Could not remove table white.
+
+Make your menu selection now: 5
+From which section would you like to remove this table?(P/N):P
+Enter table name: grey
+Table grey was not found, try again.
+Could not remove table grey.
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Deanna
+Table silver has been freed, Deanna party of 4(Pet) is leaving the restaurant.
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Jean-Luc
+Table green has been freed, Jean-Luc party of 6(Pet) is leaving the restaurant.
+
+Make your menu selection now: 3
+Enter the name of the customer that wants to leave: Data
+Table marble has been freed, Data party of 6(No Pet) is leaving the restaurant.
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table silver with 4 seats
+Table blue with 4 seats
+Table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table brown with 3 seats
+Table teal with 4 seats
+Table marble with 8 seats
+
+Make your menu selection now: 7
+Wesley party of 6(No Pet)
+Worf party of 4(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Geordi party of 3(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+
+
+Make your menu selection now: 5
+From which section would you like to remove this table?(P/N):N
+Enter table name: brown
+Removed table brown.
+
+Make your menu selection now: 5
+From which section would you like to remove this table?(P/N):P
+Enter table name: silver
+Removed table silver.
+
+Make your menu selection now: 6
+The following 5 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table blue with 4 seats
+Table green with 6 seats
+The following 6 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table teal with 4 seats
+Table marble with 8 seats
+
+Make your menu selection now: 7
+Wesley party of 6(No Pet)
+Worf party of 4(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Geordi party of 3(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+
+
+Make your menu selection now: 2
+Serving Customer Wesley party of 6(No Pet) at table marble with 8 seats.
+
+Make your menu selection now: 6
+The following 5 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table blue with 4 seats
+Table green with 6 seats
+The following 6 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table teal with 4 seats
+
+Make your menu selection now: 7
+Worf party of 4(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Geordi party of 3(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+Wesley party of 6(No Pet)
+
+
+Make your menu selection now: 4
+You are now adding a table.
+To which section would you like to add this tabe?(P/N): N
+Enter table name: pink
+This table already exists in this section!Enter table name: teal
+This table already exists in this section!Enter table name: yellow
+Enter number of seats: 3
+Table yellow has been added to the No Pets Section
+
+Make your menu selection now: 6
+The following 5 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table blue with 4 seats
+Table green with 6 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table yellow with 3 seats
+Table teal with 4 seats
+
+Make your menu selection now: 7
+Worf party of 4(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Geordi party of 3(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+Wesley party of 6(No Pet)
+
+
+Make your menu selection now: 4
+You are now adding a table.
+To which section would you like to add this tabe?(P/N): P
+Enter table name: blue
+This table already exists in this section!Enter table name: green
+This table already exists in this section!Enter table name: grey
+Enter number of seats: 7
+Table grey has been added to the Pet Friendly Section
+
+Make your menu selection now: 6
+The following 6 tables are available in the pet-friendly section:
+Table red with 2 seats
+Table yellow with 2 seats
+Table blue with 4 seats
+Table green with 6 seats
+Table grey with 7 seats
+The following 7 tables are available in the non-pet-friendly section:
+Table aquamarine with 2 seats
+Table yellow with 3 seats
+Table teal with 4 seats
+
+Make your menu selection now: 7
+Worf party of 4(No Pet)
+
+
+Make your menu selection now: 8
+Beverly party of 3(Pet)
+Geordi party of 3(No Pet)
+Will party of 4(No Pet)
+Guinan party of 4(No Pet)
+Wesley party of 6(No Pet)
+
+
+Make your menu selection now: 0
+Restaurant is closing. Goodbye.

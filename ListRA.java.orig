@@ -45,6 +45,6 @@ public class ListRA<T> extends ListArrayBased<T> {
         for(int i = index+1; i < numItems+1; i++) //loop until we are out of objects
             temp[i] = items[i-1]; //copy over elements
         items = temp; //overwrite super collection with new resized collection
-        numItems++;
+		numItems++;
     }
 }

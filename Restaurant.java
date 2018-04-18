@@ -1,223 +1,248 @@
 public class Restaurant {
-  int npStart, lineLength;
+    int npStart, lineLength;
 
-  ListRA<Table> tables;
-  Deq<CustomerParty> customerLine;
-
-
-  /**
-  * Constructor for Restauarant Class includes deq for the line of customers.
-  *@param tables a resizable array list containing references to table objects
-  *@param npStart an int value that splits the array into pet-friendly and non-pet friendly sections
-  */
-  public Restaurant(ListRA<Table> tables, int npStart) {
-    this.tables = tables;
-    this.npStart = npStart;
-
-    customerLine = new Deq<CustomerParty>();
-    lineLength = 0;
-  }
+    ListRA<Table> tables;
+    Deq<CustomerParty> customerLine;
 
 
-  /**
-  * Method to add a new party to the line of customers
-  * @param party a customer part object to be added to the customer party Deq
-  */
-  public void addNewParty(CustomerParty party) {
-    customerLine.enqueue(party);
-    lineLength++;
-  }
+    /**
+    * Constructor for Restauarant Class includes deq for the line of customers.
+    *@param tables a resizable array list containing references to table objects
+    *@param npStart an int value that splits the array into pet-friendly and non-pet friendly sections
+    */
+    public Restaurant(ListRA<Table> tables, int npStart) {
+        this.tables = tables;
+        this.npStart = npStart;
 
-  /**
-  *Method to sit a waiting party in the customer line (deq)
-  */
-  public void seatWaitingParty() {
-    int skipped = -1;
-    while(skipped++ != lineLength) {
-      CustomerParty party = customerLine.dequeue();
-      int tableIndex = canSeatParty(party.getSize(), party.getPetOk());
-      if (tableIndex >= 0) {
-        lineLength--;
-        tables.get(tableIndex).addParty(party);
-        System.out.println("Serving Customer " + party.toString() + " at table " + tables.get(tableIndex).getName() + " with " + tables.get(tableIndex).getSeatCount() + " seats.");
-        break;
-      } else {
-        System.out.println("Could not find a table with " + party.getSeatCount() + " seats for customer " + party.getName() + "!");
+        customerLine = new Deq<CustomerParty>();
+        lineLength = 0;
+    }
+
+
+    /**
+    * Method to add a new party to the line of customers
+    * @param party a customer part object to be added to the customer party Deq
+    */
+    public void addNewParty(CustomerParty party) {
         customerLine.enqueue(party);
-      }
+        lineLength++;
     }
 
-    if (skipped!=lineLength)
-      while(skipped-->0)
-        customerLine.enqueueFirst(customerLine.dequeueLast());
-  }
-
-  /**	+  private int canSeatParty(int seatCount, boolean petOk) {
-  * Method to see if a party can be seated in one of the tables
-  *@param seatCount gives number of seats needed for the party looking to be seated
-  *@param petOk if the party is ok with being in the pet section
-  *@return returns the first table that can seat the party, or -1 if no such table is avalable
-  */
-  private int canSeatParty(int seatCount, boolean petOk) {
-    int end = (petOk)?npStart:tables.size();
-    int i = (petOk)?0:npStart;
-    for(; i < size; i++)
-      if (tables.get(i).canSeat(seatCount))
-        return i;
-    return -1;
-  }
-
-  /**
-  * Method to remove parties from table who have finished being served
-  *@param name Name of the party that will be removed from the table
-  */
-  public void finishServing(String name) {
-  booolean found = false;
-  int size = tables.size();
-    //can check if this is empty in the driver (keep track of how many parties have been added  and if == 0
-    for(int i = 0, i < size; i++)
-      {
-        if(tables.get(i).peekParty().getName().equals(name))
-        {
-         found = true;
-         System.out.print("Table "+tables.get(i).getName()+" has been freed");
-         System.out.print(tables.get(i).peekParty().toString()+" is leaving the restaurant");
-         tables.get(i).removeParty();
+    /**
+    *Method to sit a waiting party in the customer line (deq)
+    */
+    public void seatWaitingParty() {
+        if(customerLine.isEmpty()) {
+            System.out.println("No customer to seat!");
+            return;
         }
-      }
-    if(!found)
-      {
-       System.out.println("Party "+name+" is not being served");
-      }
-  }
 
-  /**
-  *Method to add a table to either the pet or non-pet section of the restaurant
-  *@param table reference to a table object to be added to the list of tables
-  *@param petOK boolean to signify which section of the restaurant to place the table in
-  */
-  public void addTable(Table table, boolean petOK) {
-  int size = tables.size();
-  boolean insertHere = true;
-  if(petOK == true)
-  {
-    if(tables.isEmpty()) {
-          tables.add(0,table);
-          npStart++;  }
-
-    else if(table.getSeatcount() > tables.get(npStart-1).getSeatcount() {
-           tables.add(npStart, table);
-           npStart++;  }
-    else{
-         for(int i = 0; i < npStart;i++)
-        {
-           if(table.getSeatCount() > tables.get(i).getSeatCount()){
-                insertHere = false;
-                }
-           if(insertHere){
-                tables.add(i, table)
-                npStart++;
-                break;  }
-         }
-  }
-    System.out.println("Table "+table.getName()+" has been added to the Pet Friendly Section");
-  }
-  else
-  {
-    if(tables.isEmpty()) {
-          tables.add(0,table);
-           }
-
-    else if(table.getSeatcount() > tables.get(size-1).getSeatcount() {
-           tables.add(size, table);
+        int skipped = -1;
+        while(skipped++ != lineLength-1) {
+            CustomerParty party = customerLine.dequeue();
+            int tableIndex = canSeatParty(party.getSize(), party.getPetOk());
+            if (tableIndex >= 0) {
+                lineLength--;
+                tables.get(tableIndex).addParty(party);
+                System.out.println("Serving Customer " + party.toString() + " at table " + tables.get(tableIndex).getName() + " with " + tables.get(tableIndex).getSeatCount() + " seats.");
+                break;
+            } else {
+                System.out.println("Could not find a table with " + party.getSize() + " seats for customer " + party.getName() + "!");
+                customerLine.enqueue(party);
             }
-    else{
-         for(int i = npStart; i < size; i++)
+        }
+
+        if (skipped!=lineLength)
+            while(skipped-->0)
+                customerLine.enqueueFirst(customerLine.dequeueLast());
+    }
+
+    /**	+  private int canSeatParty(int seatCount, boolean petOk) {
+    * Method to see if a party can be seated in one of the tables
+    *@param seatCount gives number of seats needed for the party looking to be seated
+    *@param petOk if the party is ok with being in the pet section
+    *@return returns the first table that can seat the party, or -1 if no such table is avalable
+    */
+    private int canSeatParty(int seatCount, boolean petOk) {
+        int end = (petOk)?npStart:tables.size();
+        int i = (petOk)?0:npStart;
+        for(; i < end; i++)
+            if (!tables.get(i).isTaken() && tables.get(i).canSeat(seatCount))
+                return i;
+        return -1;
+    }
+
+    /**
+    * Method to remove parties from table who have finished being served
+    *@param name Name of the party that will be removed from the table
+    */
+    public void finishServing(String name) {
+        boolean found = false;
+        int size = tables.size();
+        //can check if this is empty in the driver (keep track of how many parties have been added  and if == 0
+        for(int i = 0; i < size; i++)
         {
-           if(table.getSeatCount() > tables.get(i).getSeatCount()){
-                insertHere = false;
+            if(tables.get(i).isTaken() && tables.get(i).peekParty().getName().equals(name))
+            {
+                found = true;
+                System.out.print("Table "+tables.get(i).getName()+" has been freed, ");
+                System.out.println(tables.get(i).peekParty().toString()+" is leaving the restaurant.");
+                tables.get(i).removeParty();
+            }
+        }
+        if(!found)
+        {
+            System.out.println("Party "+name+" is not being served");
+        }
+    }
+
+    /**
+    *Method to add a table to either the pet or non-pet section of the restaurant
+    *@param table reference to a table object to be added to the list of tables
+    *@param petOK boolean to signify which section of the restaurant to place the table in
+    */
+    public void addTable(Table table, boolean petOK) {
+        int size = tables.size();
+        boolean insertHere = true;
+        if(petOK == true)
+        {
+            if(tables.isEmpty()) {
+                tables.add(0,table);
+                npStart++;
+            }
+
+            else if(table.getSeatCount() > tables.get(npStart-1).getSeatCount()) {
+                tables.add(npStart, table);
+                npStart++;
+            }
+            else {
+                for(int i = 0; i < npStart; i++)
+                {
+                    insertHere = true;
+                    if(table.getSeatCount() > tables.get(i).getSeatCount()) {
+                        insertHere = false;
+                    }
+                    if(insertHere) {
+                        tables.add(i, table);
+                        npStart++;
+                        break;
+                    }
                 }
-           if(insertHere){
-                tables.add(i, table)
-                break;  }
-         }
-  }
-    System.out.println("Table "+table.getName()+" has been added to the No Pets Section");
-  }
-}
+            }
+            System.out.println("Table "+table.getName()+" has been added to the Pet Friendly Section");
+        }
+        else
+        {
+            if(tables.isEmpty()) {
+                tables.add(0,table);
+            }
 
-  /**
-  *Method that removes a table from either section of the restaurant
-  *@param name gives the name of the table to be removed
-  *@param petOK signifies which section to remove the table from
-  */
-  public boolean rmTable(String name, boolean petOK) {
-    int start = (petOK)?0:npStart;
-    int end = (petOK)?npStart-1:tables.size();
-    for(; start<end; start++)
-      if (tables.get(start).getName().equals(name)) {
-        tables.remove(start);
-        return true;
-      }
-    return false;
-  }
-
-  /**
-  *Method to see the available tables in each of the sections of the restaurant	+    size = tables.size();
-  */
-  public void getAvailableTables() {
-    size = tables.size();
-    System.out.prinln("The following tables are available in the pet-friendly section:");
-    for( int i = 0; i < npStart; i++)
-    {
-    if(tables.get(i).peekParty().equals(null))
-    {
-     System.out.println("Table "+tables.get(i).getName()+" with "+tables.get(i).getSeatCount()+" seats"
+            else if(table.getSeatCount() > tables.get(size-1).getSeatCount()) {
+                tables.add(size, table);
+            }
+            else {
+                for(int i = npStart; i < size; i++)
+                {
+                    insertHere = true;
+                    if(table.getSeatCount() > tables.get(i).getSeatCount()) {
+                        insertHere = false;
+                    }
+                    if(insertHere) {
+                        tables.add(i, table);
+                        break;
+                    }
+                }
+            }
+            System.out.println("Table "+table.getName()+" has been added to the No Pets Section");
+        }
     }
+
+    /**
+    *Method that removes a table from either section of the restaurant
+    *@param name gives the name of the table to be removed
+    *@param petOK signifies which section to remove the table from
+    */
+    public boolean rmTable(String name, boolean petOK) {
+        int start = (petOK)?0:npStart;
+        int end = (petOK)?npStart:tables.size();
+        if(petOK)
+            npStart--;
+        for(; start<end; start++) {
+            if (tables.get(start).getName().equals(name)) {
+                if(tables.get(start).isTaken()) {
+                    System.out.println("Cannot remove a table currently in use!");
+                    if(petOK)
+                        npStart++;
+                    return false;
+                }
+                tables.remove(start);
+                return true;
+            }
+        }
+        if(petOK)
+            npStart++;
+        return false;
     }
-    System.put.println("The following tables are available in the non-pet-friendly section:")
-    for (int i = npStart; i < size; i++)
-    {
-      if(tables.get(i).peekParty().equals(null))
-      {
-      System.out.println("Table "+ tab;es/get(i).getName()+" with "+tables.get(i).getSeatCount()+" seats"
-      }
+
+    /**
+    *Method to see the available tables in each of the sections of the restaurant	+    size = tables.size();
+    */
+    public void getAvailableTables() {
+        int size = tables.size();
+        System.out.println("The following " + npStart + " tables are available in the pet-friendly section:");
+        for( int i = 0; i < npStart; i++)
+        {
+            if(tables.get(i).peekParty() == null)
+            {
+                System.out.println("Table "+tables.get(i).getName()+" with "+tables.get(i).getSeatCount()+" seats");
+            }
+        }
+
+        System.out.println("The following " + (tables.size() - npStart) + " tables are available in the non-pet-friendly section:");
+        for (int i = npStart; i < size; i++)
+        {
+            if(tables.get(i).peekParty() == null)
+            {
+                System.out.println("Table "+ tables.get(i).getName()+" with "+tables.get(i).getSeatCount()+" seats");
+            }
+        }
     }
-  }
 
-  /**
-  *Method to get the names of all tables in a section
-  *@param petOk if true the petOK section will be searched, opposite if false
-  *@return String of the tables names, separated by new line characters
-  */
-  public String getTableNames(boolean petOk) {
-    String out = "";
-    int start = (petOK)?0:npStart;
-    int end = (petOK)?npStart-1:tables.size();
-    for(; start<end; start++)
-      out += tables.get(start).getName() + "\n";
-    return out;
-  }
+    /**
+    *Method to get the names of all tables in a section
+    *@param petOk if true the petOK section will be searched, opposite if false
+    *@return String of the tables names, separated by new line characters
+    */
+    public String getTableNames(boolean petOK) {
+        String out = "";
+        int start = (petOK)?0:npStart;
+        int end = (petOK)?npStart:tables.size();
+        for(; start<end; start++)
+            out += tables.get(start).getName() + "\n";
+        return out;
+    }
 
-  /**
-  *Method to get the waiting customers in line
-  *@return returns a string of customers in line waiting to be seated
-  */
-  public String getWaitingCustomers() {
-    return customerLine.toString();
-  }
+    /**
+    *Method to get the waiting customers in line
+    *@return returns a string of customers in line waiting to be seated
+    */
+    public String getWaitingCustomers() {
+        String out = customerLine.toString("\n");
+        return (out.equals(""))?"No customer waiting in line.":out;
+    }
 
-  /**
-  *Method to geet the customers that are currently seated at tables
-  *@return a string of all of the customers that are at each of the tables of the restaurant
-  */
-  public String getSeatedCustomers() {
-    String out = "";
-    int size = tables.size();
-    for(int i = 0; i < size; i++)
-      if (tables.get(i).isTaken())
-          out += tables.get(i).peekParty().toString() + "\n";
-
-    return out;
-  }
+    /**
+    *Method to geet the customers that are currently seated at tables
+    *@return a string of all of the customers that are at each of the tables of the restaurant
+    */
+    public String getSeatedCustomers() {
+        String out = "";
+        int size = tables.size();
+        for(int i = 0; i < size; i++)
+            if (tables.get(i).isTaken())
+                out += tables.get(i).peekParty().toString() + "\n";
+        if(out.equals(""))
+            out = "No parties seated currently.";
+        return out;
+    }
 }

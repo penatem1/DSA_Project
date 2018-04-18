@@ -11,147 +11,186 @@
 import java.util.Scanner;
 
 public class Driver {
-  public static void main(String args[]) {
-    Scanner scan = new Scanner(System.in); //scanner for input
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in); //scanner for input
 
-    Restaurant rest = initRestaurant(scan);
+        Restaurant rest = initRestaurant(scan); //make initial tables in restaurant
 
-    String p_name, p_size;
-    boolean petOk;
-    int in;
-    System.out.println("\nSelect from the following menu: \n1. Insert item to list.\n2. Remove item from list.\n3. Get item from list.\n4. Search for a specified item in the list.\n5. Clear list.\n6. Print size and content of list.\n7. Exit program.");
-    do {
-      in = Integer.parseInt(promptInput(scan, "\nMake your menu selection now: ")); //prompt and parse input for switching
-      try {
-        switch(in) {
-        case 8:
-          System.out.println(rest.getSeatedCustomers());
-          break;
-        case 7:
-          System.out.println(rest.getWaitingCustomers());
-          break;
-        case 6:
-          System.out.println(rest.getAvailableTables());
-          break;
-        case 5:
-          petOk = (promptInput(scan, "From which section would you like to remove this table?(P/N):").charAt(0) == 'P');
+        String p_name, t_name, petVal, name="";
+        boolean petOk;
+        int in, seatNum, p_size;
+        System.out.println("\nSelect from the following menu: \n0. Close the restaurant.\n1. Customer party enters the restaurant.\n2. Customer party is seated and served.\n3. Customer party leaves the restaurant.\n4. Add a table.\n5. Remove a table.\n6  Display available tables.\n7. Display info about waiting customer parties.\n8. Display info about customer parties being served.");
+        do {
+            in = Integer.parseInt(promptInput(scan, "\nMake your menu selection now: ")); //prompt and parse input for switching
+            try {
+                switch(in) {
+                case 8:
+                    System.out.println(rest.getSeatedCustomers());
+                    break;
+                case 7:
+                    System.out.println(rest.getWaitingCustomers());
+                    break;
+                case 6:
+                    rest.getAvailableTables();
+                    break;
+                case 5:
+                    petOk = (promptInput(scan, "From which section would you like to remove this table?(P/N):").charAt(0) == 'P');
 
-          while(true) {
-            t_name = promptInput(scan, "Enter table name: ");
-            if(rest.getTableNames(petOk).contains(t_name))
-              System.out.println("Table " + t_name + " was not found, try again.");
-            else
-              break;
-          }
+                    t_name = promptInput(scan, "Enter table name: ");
+                    if(!rest.getTableNames(petOk).contains(t_name))
+                        System.out.println("Table " + t_name + " was not found, try again.");
 
-          rest.rmTable(t_name, petOk);
-          break;
-        case 4:
-            System.out.println("You are now adding a table.");
-            petVal = promptInput(scan,"To which section would you like to add this tabe?(P/N): ");
-            boolean petOK = false;
-            boolean difName = false;
-            if (petVal.equalsIgnoreCase("P")
-                {
-                   petOK = true;
+                    boolean success = rest.rmTable(t_name, petOk);
+                    if(success)
+                        System.out.println("Removed table " + t_name + ".");
+                    else
+                        System.out.println("Could not remove table " + t_name + ".");
+                    break;
+                case 4:
+                    System.out.println("You are now adding a table.");
+                    petVal = promptInput(scan,"To which section would you like to add this tabe?(P/N): ");
+                    boolean petOK = false;
+                    boolean difName = false;
+                    if (petVal.equalsIgnoreCase("P"))
+                    {
+                        petOK = true;
+                    }
+                    while(!difName)
+                    {
+                        name = promptInput(scan, "Enter table name: ");
+
+                        if(!rest.getTableNames(petOK).contains(name))
+                        {
+                            difName = true;
+                        }
+                        else
+                        {
+                            System.out.print("This table already exists in this section!");
+                        }
+
+                    }
+                    seatNum = Integer.parseInt(promptInput(scan, "Enter number of seats: "));
+                    Table newTable = new Table(name, seatNum);
+                    rest.addTable(newTable, petOK);
+
+                    break;
+                case 3:
+                    if(rest.getSeatedCustomers().equals("No parties seated currently.")) {
+                        System.out.println("No parties seated currently.");
+                        break;
+                    }
+                    rest.finishServing(promptInput(scan, "Enter the name of the customer that wants to leave: "));
+                    break;
+                case 2:
+                    rest.seatWaitingParty();
+                    break;
+                case 1:
+                    while(true) {
+                        p_name = promptInput(scan, "Enter party name: ");
+                        if (rest.getWaitingCustomers().contains(p_name) || rest.getSeatedCustomers().contains(p_name))
+                            System.out.print("Party name already exists. Pick a different name.");
+                        else
+                            break;
+                    }
+
+                    p_size = Integer.parseInt(promptInput(scan, "Enter party size: "));
+
+                    petOk = (promptInput(scan, "Does your party have pets (Y/N)?").charAt(0) == 'Y');
+
+                    rest.addNewParty(new CustomerParty(p_name, p_size, petOk));
+
+                    break;
+                case 0:
+                    System.out.println("Restaurant is closing. Goodbye.");
+                    break;
+                default:
+                    System.out.println("Invalid selection.");
                 }
-             while(!difName)
-               {
-                name = promptInput(scan, "Enter table name: ");
-
-                  if(!getTableName(petVal).contains(name))
-                     {
-                        difName = true
-                     }
-                  else
-                  { System.out.print("This table already exists in this section!")}
-
-                }
-                seatNum = Integer.parseInt(promptInput(scan, "Enter number of seats: "));
-                Table newTable = new table(name, seatNum);
-                rest.addTable(newTable, petVal);
-
-                break;
-        case 3:
-
-          break;
-        case 2:
-          rest.seatWaitingParty();
-          break;
-        case 1:
-          while(true) {
-          p_name = promptInput(scan, "Enter party name: ");
-          if (rest.getWaitingCustomers().contains(p_name) || rest.getSeatedCustomers().contains(p_name))
-            System.out.print("Party name already exists. Pick a different name.");
-          else
-            break;
-          }
-
-          p_size = Integer.parseInt(promptInput(scan, "Enter party size: "));
-
-          petOk = (promptInput(scan, "Does your party have pets (Y/N)?").charAt(0) == 'Y');
-
-          rest.addNewParty(new CustomerParty(p_name, p_size, petOk));
-
-          break;
-        case 0:
-          System.out.println("Restaurant is closing. Goodbye.");
-          break;
-        default:
-            System.out.println("Invalid selection.");
-        }
-      } catch (Exception e) {
-          System.out.println("Something went very worng.");
-      }
-    } while (in != 0);
-  }
-
-  private static Restaurant initRestaurant(Scanner scan) {
-    ListRA<Table> tables = new ListRA<Table>();
-    int petFriendly = Integer.parseInt(promptInput(scan, "Enter your restaurant configuration:\nHow many tables does your pet-friendly section have?"));
-    String tableName;
-    int seatCount;
-    for(int i = 0; i < petFriendly; i++) {
-      tableName = promptInput(scan, "Enter table name: ");
-
-      for(int j = 0; j < i; j++)
-        if(tables.get(j).getName().equals(tableName)) {
-          System.out.println("Name already in use, please use a different name.");
-          i--;
-          break;
-        }
-
-      seatCount = Integer.parseInt(promptInput(scan, "Enter number of seats: "));
-
-      tables.add(i, new Table(tableName, seatCount));
+            } catch (Exception e) {
+                System.out.println("Something went very wrong.");
+            }
+        } while (in != 0);
     }
 
-    int npetFriendly = Integer.parseInt(promptInput(scan, "How many tables does your non-pet-friendly section have? "));
+    private static Restaurant initRestaurant(Scanner scan) {
+        ListRA<Table> tables = new ListRA<Table>();
+        int petFriendly = Integer.parseInt(promptInput(scan, "Enter your restaurant configuration:\nHow many tables does your pet-friendly section have?"));
+        String tableName;
+        int seatCount;
+        for(int i = 0; i < petFriendly; i++) {
+            tableName = promptInput(scan, "Enter table name: ");
 
-    for(int i = 0; i < npetFriendly; i++) {
-      tableName = promptInput(scan, "Enter table name: ");
+            boolean foundMatch = false;
+            for(int j = 0; j < i; j++)
+                if(tables.get(j).getName().equals(tableName)) {
+                    System.out.println("Name already in use, please use a different name.");
+                    i--;
+                    foundMatch = true;
+                    break;
+                }
 
-      for(int j = 0; j < i; j++)
-        if(tables.get(petFriendly+j).getName().equals(tableName)) {
-          System.out.println("Name already in use, please use a different name.");
-          i--;
-          break;
+            if(foundMatch)
+                continue;
+
+            seatCount = Integer.parseInt(promptInput(scan, "Enter number of seats: "));
+
+            int pos = -1;
+            for(int j = 0; j < i; j++) {
+                if(tables.get(j).getSeatCount() < seatCount)
+                    continue;
+                else {
+                    pos = j;
+                    break;
+                }
+            }
+            if(pos==-1)
+                pos = i;
+            tables.add(pos, new Table(tableName, seatCount));
         }
 
-      seatCount = Integer.parseInt(promptInput(scan, "Enter number of seats: "));
+        int npetFriendly = Integer.parseInt(promptInput(scan, "How many tables does your non-pet-friendly section have? "));
 
-      tables.add(petFriendly + i, new Table(tableName, seatCount));
+        for(int i = 0; i < npetFriendly; i++) {
+            tableName = promptInput(scan, "Enter table name: ");
+
+            boolean foundMatch = false;
+            for(int j = 0; j < i; j++)
+                if(tables.get(petFriendly+j).getName().equals(tableName)) {
+                    System.out.println("Name already in use, please use a different name.");
+                    i--;
+                    foundMatch = true;
+                    break;
+                }
+
+            if(foundMatch)
+                continue;
+
+            seatCount = Integer.parseInt(promptInput(scan, "Enter number of seats: "));
+
+            int pos = -1;
+            for(int j = 0; j < i; j++) {
+                if(tables.get(petFriendly + j).getSeatCount() < seatCount)
+                    continue;
+                else {
+                    pos = j;
+                    break;
+                }
+            }
+            if(pos==-1)
+                pos = i;
+
+            tables.add(petFriendly + pos, new Table(tableName, seatCount));
+        }
+
+        Restaurant out = new Restaurant(tables, petFriendly);
+
+        return out;
     }
 
-    Restaurant out = new Restaurant(tables, petFriendly);
-
-    return out;
-  }
-
-  private static final String promptInput(Scanner scan, String prompt) { //used for slipstreaming the input process
-    System.out.print(prompt);
-    String out = scan.nextLine();
-    System.out.println(out);
-    return out;
-  }
+    private static final String promptInput(Scanner scan, String prompt) { //used for slipstreaming the input process
+        System.out.print(prompt);
+        String out = scan.nextLine().trim();
+        System.out.println(out);
+        return out;
+    }
 }
